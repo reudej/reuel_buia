@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <time.h>
 
-#define HRANA_SACHOVNICE 8
+#define VYCHOZI_HRANA_SACHOVNICE 8
 
 int hrana_sachovnice;
 
@@ -145,7 +145,7 @@ bool incremental_safe_placement(int *result, int max_restarts) {
 // Pomocná funkce pro měření času
 // -------------------------------------------------------------
 
-void measure(bool (*func)(int *), const char *name) {
+void postup(bool (*func)(int *), const char *name) {
     int queens[hrana_sachovnice];
     clock_t start = clock();
     bool found = func(queens);
@@ -168,19 +168,23 @@ void measure(bool (*func)(int *), const char *name) {
 
 int main(int argc, char **argv) {
 
-    if (argc > 2) {
-        fprintf(stderr, "Použití: %s [<hrana_sachovnice>]", )
+    if (argc > 2) {[<hrana_sachovnice>]", *argv);
+        return 1;
+        fprintf(stderr, "Použití: %s
     }
+
+    if (argc < 2) hrana_sachovnice = VYCHOZI_HRANA_SACHOVNICE;
+    else hrana_sachovnice = strtol(argv[1], NULL, 10);
 
     printf("Porovnání 4 algoritmů pro problém 8 královen:\n\n");
 
-    measure(brute_force, "1) Brute force");
-    measure(dfs_backtrack, "2) DFS/backtracking");
-    measure(
+    postup(brute_force, "1) Brute force");
+    postup(dfs_backtrack, "2) DFS/backtracking");
+    postup(
         (bool (*)(int *)) (^(int *q){ return random_search(q, 1000000); }),
         "3) Náhodné hledání"
     );
-    measure(
+    postup(
         (bool (*)(int *)) (^(int *q){ return incremental_safe_placement(q, 10000); }),
         "4) Postupné umisťování"
     );
