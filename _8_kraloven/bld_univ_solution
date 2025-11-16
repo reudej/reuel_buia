@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+clang universal_solution.c -Iutils -o univ_solution_O3 -O3 -lflint-arb -lflint -lgmp

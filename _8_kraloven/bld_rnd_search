@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+clang random_search.c -Iutils -o rnd_search_O3 -O3 -lflint-arb -lflint -lgmp -lhwloc -pthread
