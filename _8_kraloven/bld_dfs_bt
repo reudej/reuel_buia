@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+clang dfs_backtrack.c -Iutils -o dfs_bt_O3 -O3 -lflint-arb -lflint -lgmp -lhwloc -pthread

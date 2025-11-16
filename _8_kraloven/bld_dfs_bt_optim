@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+clang dfs_backtrack_optimized.c -Iutils -o dfs_bt_o_O3 -O3 -lflint-arb -lflint -lgmp

@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+clang brute_force.c -Iutils -o bruteforce_O3 -O3 -lflint-arb -lflint -lgmp -lhwloc -pthread
