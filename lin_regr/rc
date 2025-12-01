@@ -1,0 +1,6 @@
+a() {
+    source "$(pwd)/venv/bin/activate"
+}
+da() {
+    deactivate
+}
