@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Tento soubor byl auutomaticky vygenerován pomocí predictor_generator.py
+# Tento soubor byl automaticky vygenerován pomocí predictor_generator.py
 
 import pandas as pd
 from sklearn.model_selection import train_test_split

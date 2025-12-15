@@ -7,13 +7,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, root_mean_squared_error
 
-data = pd.read_csv("forestfires.csv")
+data = pd.read_csv("https://raw.githubusercontent.com/mlcollege/ai-academy/main/07-klasifikace/data/infarkt.csv")
 
 
 
 # Začátek vloženého úseku pro úpravu dat ještě před predikcí.
-
-data["month_num"] = pd.to_datetime(data["month"], format="%b").dt.month
 
 
 
@@ -22,8 +20,8 @@ data["month_num"] = pd.to_datetime(data["month"], format="%b").dt.month
 
 
 
-X_all = data[['wind', 'month_num', 'FFMC', 'RH', 'ISI', 'X', 'rain', 'DMC', 'DC', 'temp', 'Y']]
-y_all = data['area']
+X_all = data[['vek', 'manzelstvi', 'id', 'bmi', 'pohlavi', 'bydliste', 'zamestnani', 'nemoc_srdce', 'cukr', 'hypertenze', 'koureni']]
+y_all = data['infarkt']
 
 X_train, X_test, y_train, y_test = train_test_split(
     X_all, 
@@ -34,7 +32,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 print('Velikost trenovaci mnoziny:', len(X_train))
 print('Velikost testovaci mnoziny:', len(X_test))
 
-model = RandomForestRegressor(n_estimators=157)
+model = RandomForestRegressor(n_estimators=1)
 model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 

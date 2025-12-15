@@ -46,6 +46,7 @@ while True:
             continue
     break
 
+vlozeny_usek = ""
 if odpoved =="A":
     with open(NAZEV_USEKU_KODU) as f:
         vlozeny_usek = f.read()
@@ -75,7 +76,9 @@ while True:
 
 while True:
     try:
-        X_all_cols.difference_update(set([list(data.columns)[int(i)] for i in input("Zadejte prosím čísla sloupců, ktreré chcete vyloučit ze vstupu: ").split(" ")]))
+        inp = input("Zadejte prosím čísla sloupců, ktreré chcete vyloučit ze vstupu: ").split(" ")
+        if inp == ['']: break
+        X_all_cols.difference_update(set([list(data.columns)[int(i)] for i in inp]))
     except KeyboardInterrupt:
         print()
         exit()
@@ -168,7 +171,7 @@ print()
 
 print("Probíhá automatické nastavování počtu stromů u náhodného lesa...")
 
-zanadbatelny_rozdil_rmse = 3
+zanadbatelny_rozdil_rmse = 5
 vychozi_dict = {"pripraveno": False}
 rand_forests = [rand_forest.copy() for rand_forest in [vychozi_dict]*3]
 while True:
@@ -245,11 +248,9 @@ model, model_imp = modely[model]
 
 print("Generuje se výsledný soubor...")
 
-if odpoved =="A":
-    with open(SABLONA, encoding="utf-8") as f:
-        sablona = f.read()
-else:
-    sablona=""
+
+with open(SABLONA, encoding="utf-8") as f:
+    sablona = f.read()
 
 with open(argv[2], mode="w", encoding="utf-8") as f:
     f.write(sablona.format(
