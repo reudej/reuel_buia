@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/reuel/Dokumenty/buia/klasifikace/vlastni_dataset/trainer2.py", line 75, in <module>
+    model = SmallCNN().to(DEVICE)
+            ~~~~~~~~^^
+  File "/home/reuel/Dokumenty/buia/klasifikace/vlastni_dataset/trainer2.py", line 64, in __init__
+    nn.Conv2d(74, 148, padding=1),
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+TypeError: Conv2d.__init__() missing 1 required positional argument: 'kernel_size'

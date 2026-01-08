@@ -1,0 +1,4 @@
+VNVDIR="/home/reuel/Dokumenty/buia/klasifikace/vlastni_dataset/../venv"
+a() {
+    source $VNVDIR/bin/activate
+}
