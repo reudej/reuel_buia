@@ -12,8 +12,8 @@ from joblib import dump, load
 from os.path import exists
 from sys import argv
 
-MODEL_FILE = "pocasuï_aus_model.joblib"
-MODEL_ALT_FILE = "pocasuï_aus_alt_model.joblib"
+MODEL_FILE = "pocasi_aus_model.joblib"
+MODEL_ALT_FILE = "pocasi_aus_alt_model.joblib"
 
 pretrenovat = len(argv) == 2 and argv[1] == "-r"
 ignorovat_jinou_verzi = len(argv) == 2 and argv[1] == "-i"
