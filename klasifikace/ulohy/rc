@@ -1,0 +1,4 @@
+VNVDIR="/home/reuel/Dokumenty/buia/klasifikace/ulohy/../venv"
+a() {
+    source $VNVDIR/bin/activate
+}
