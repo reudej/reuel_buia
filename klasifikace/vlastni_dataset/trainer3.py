@@ -48,7 +48,7 @@ class SmallCNN(nn.Module):
     def __init__(self):
         super().__init__()
         self.features = nn.Sequential(
-            nn.Conv2d(3, 18, 7, padding=1),
+            nn.Conv2d(3, 18, 3, padding=1),
             nn.ReLU(),
             nn.Conv2d(18, 54, 3, padding=1),
             nn.ReLU(),

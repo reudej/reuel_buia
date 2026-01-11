@@ -6,6 +6,8 @@ from torch.utils.data import DataLoader, TensorDataset, Subset
 from sys import argv
 from os.path import exists
 
+from tabulate import tabulate
+
 # ---------- konfigurace ----------
 BATCH_SIZE = 128
 EPOCHS = 45
@@ -94,7 +96,20 @@ loss, acc, confusion = eval_model(model, test_loader)
 
 print(
     f"LOSS:     {loss:.3f}\n"
-    f"ACCURACY: {acc:.3f}\n"
+    f"ACCURACY: {acc:.3f}\n\n"
 )
 
-print(confusion)
+cifar10_classes = [
+    "airplane",
+    "automobile",
+    "bird",
+    "cat",
+    "deer",
+    "dog",
+    "frog",
+    "horse",
+    "ship",
+    "truck"
+]
+data = [[cifar10_classes[i], *[confusion[i, j] for j in range(len(cifar10_classes))]] for i in range(len(cifar10_classes))]
+print("CONFUSION MATRIX:\n\n" + tabulate(data, headers=[""]+cifar10_classes, tablefmt="github"))
